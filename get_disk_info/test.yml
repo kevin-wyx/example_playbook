@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: Get disk info
+    shell: lsblk
+    register: disk_info
+
+  - name: Debug
+    debug:
+      msg: "{{ disk_info['stdout'] }}"
+
